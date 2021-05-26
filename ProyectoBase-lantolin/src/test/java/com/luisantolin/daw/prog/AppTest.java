@@ -1,4 +1,4 @@
-package com.luisantolin.daw.prog.ejemplo;
+package com.luisantolin.daw.prog;
 
 import static org.junit.Assert.assertTrue;
 

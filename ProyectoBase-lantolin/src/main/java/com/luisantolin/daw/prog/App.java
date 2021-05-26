@@ -1,4 +1,4 @@
-package com.luisantolin.daw.prog.ejemplo;
+package com.luisantolin.daw.prog;
 
 /**
  * Hello world!

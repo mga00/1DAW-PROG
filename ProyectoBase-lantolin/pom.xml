@@ -68,7 +68,7 @@
 						<archive>
 							<manifest>
 								<addClasspath>true</addClasspath>
-								<mainClass>com.luisantolin.daw.prog.ejemplo.App</mainClass>
+								<mainClass>com.luisantolin.daw.prog.App</mainClass>
 							</manifest>
 						</archive>
 					</configuration>

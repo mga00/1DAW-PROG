@@ -11,16 +11,18 @@ public class App {
 		try {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb", "user", "changeme");
 			Statement stmt = con.createStatement();
-			ResultSet resultSet = stmt.executeQuery("SELECT * FROM prueba_tb");
+//			ResultSet resultSet = stmt.executeQuery("SELECT * FROM prueba_tb");
+			ResultSet resultSet = stmt.executeQuery("SELECT sysdate() as fecha FROM dual");
 			while (resultSet.next()) {
-				System.out.print( "Nombre: " + resultSet.getString("nombre") );
-				System.out.print( " Email: " + resultSet.getString("email") + "\n");
+				System.out.print( "Fecha: " + resultSet.getString("fecha") );
+//				System.out.print( "Nombre: " + resultSet.getString("nombre") );
+//				System.out.print( " Email: " + resultSet.getString("email") + "\n");
 			}
 			resultSet.close();
 			stmt.close();
 			con.close();
 		} catch (SQLException e) {
-			System.err.println("ERROR: " + e.getMessage());
+			System.err.println("MANAZAS: " + e.getMessage());
 		}
 
 	}

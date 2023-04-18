@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import org.junit.jupiter.api.Test;
 
 public class AppTest {
-    private static Logger LOGGER;
+    private final static Logger LOGGER = Logger.getLogger( "LOGGER TEST 2" );
 
     static {
         InputStream ficheroDeConfiguracion = App.class.getClassLoader().getResourceAsStream( "config/logging-test.properties" );
@@ -20,8 +20,6 @@ public class AppTest {
         } catch ( IOException e ) {
             e.printStackTrace();
         }
-
-        LOGGER = Logger.getLogger( "LOGGER TEST 2" );
     }
 
     @Test

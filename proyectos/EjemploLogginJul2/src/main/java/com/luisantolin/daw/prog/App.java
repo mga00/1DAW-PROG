@@ -26,7 +26,7 @@ import java.util.logging.Logger;
  * muy realista ya que las necesidades de logging varian mucho con cada entorno
  */
 public class App {
-    private static Logger LOGGER;
+    private static Logger LOGGER = Logger.getLogger( "LOGGER TEST 2" );
 
     public static void main( String[] args ) {
 
@@ -37,8 +37,6 @@ public class App {
             e.printStackTrace();
             return;
         }
-
-        LOGGER = Logger.getLogger( "LOGGER TEST 2" );
 
         // Logeando.
         // Ejemplos de mensajes de múltiples niveles, ordenados por nivel

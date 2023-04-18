@@ -21,10 +21,9 @@ import java.util.logging.XMLFormatter;
  * como se configura y maneja usando un fichero de propiedades
  */
 public class App {
-    private static Logger LOGGER;
+    private final static Logger LOGGER = Logger.getLogger( "LOGGER TEST 1" );
 
     public static void main( String[] args ) {
-        LOGGER = Logger.getLogger( "LOGGER TEST 1" );
         
         // Logeando.
         // Ejemplos de mensajes de múltiples niveles, ordenados por nivel

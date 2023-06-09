@@ -1,4 +1,4 @@
-package com.luisantolin.daw.prog;
+package com.gsd.daw.prog;
 
 /**
  * Hello world!

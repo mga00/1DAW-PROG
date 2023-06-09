@@ -1,4 +1,4 @@
-package com.luisantolin.daw.prog;
+package com.gsd.daw.prog;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

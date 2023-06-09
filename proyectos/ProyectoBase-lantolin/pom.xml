@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.luisantolin.daw.prog</groupId>
+	<groupId>com.gsd.daw.prog</groupId>
 	<artifactId>ejemplo</artifactId>
 	<version>1.0</version>
 
@@ -55,7 +55,7 @@
 						<archive>
 							<manifest>
 								<addClasspath>true</addClasspath>
-								<mainClass>com.luisantolin.daw.prog.App</mainClass>
+								<mainClass>com.gsd.daw.prog.App</mainClass>
 							</manifest>
 						</archive>
 					</configuration>
@@ -81,7 +81,7 @@
 					<artifactId>exec-maven-plugin</artifactId>
 					<version>3.1.0</version>
 					<configuration>
-						<mainClass>com.luisantolin.daw.prog.App</mainClass>
+						<mainClass>com.gsd.daw.prog.App</mainClass>
 					</configuration>
 				</plugin>
 				<plugin>

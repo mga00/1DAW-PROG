@@ -107,7 +107,7 @@
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>3.3.0</version>
 				<configuration>
-					<configLocation>etc/google_checks.xml</configLocation>
+					<configLocation>etc/daw_checks.xml</configLocation>
 				</configuration>
 				<reportSets>
 					<reportSet>

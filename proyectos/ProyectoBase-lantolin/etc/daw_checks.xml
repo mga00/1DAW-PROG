@@ -29,48 +29,42 @@
 
 	<!-- https://checkstyle.org/config_filters.html#SuppressionFilter -->
 	<module name="SuppressionFilter">
-		<property name="file"
-			value="${org.checkstyle.google.suppressionfilter.config}"
-			default="checkstyle-suppressions.xml" />
+		<property name="file" value="${org.checkstyle.google.suppressionfilter.config}" default="checkstyle-suppressions.xml" />
 		<property name="optional" value="true" />
 	</module>
 
 	<module name="TreeWalker">
+		<module name="Regexp">
+			<property name="format" value="System\.exit"/>
+			<property name="illegalPattern" value="true"/>
+			<property name="ignoreComments" value="true"/>
+			<property name="message" value="No se puede usar System.exit()"/>
+		</module>
 		<module name="OuterTypeFilename" />
 		<module name="IllegalTokenText">
 			<property name="tokens" value="STRING_LITERAL, CHAR_LITERAL" />
-			<property name="format"
-				value="\\u00(09|0(a|A)|0(c|C)|0(d|D)|22|27|5(C|c))|\\(0(10|11|12|14|15|42|47)|134)" />
-			<property name="message"
-				value="Consider using special escape sequence instead of octal value or Unicode escaped value." />
+			<property name="format" value="\\u00(09|0(a|A)|0(c|C)|0(d|D)|22|27|5(C|c))|\\(0(10|11|12|14|15|42|47)|134)" />
+			<property name="message" value="Consider using special escape sequence instead of octal value or Unicode escaped value." />
 		</module>
 		<module name="AvoidEscapedUnicodeCharacters">
-			<property name="allowEscapesForControlCharacters"
-				value="true" />
+			<property name="allowEscapesForControlCharacters" value="true" />
 			<property name="allowByTailComment" value="true" />
 			<property name="allowNonPrintableEscapes" value="true" />
 		</module>
 		<module name="AvoidStarImport" />
 		<module name="UnusedImports" />
 		<module name="OneTopLevelClass" />
-		<module name="NoLineWrap">
-			<property name="tokens"
-				value="PACKAGE_DEF, IMPORT, STATIC_IMPORT" />
-		</module>
 		<module name="EmptyBlock">
 			<property name="option" value="TEXT" />
-			<property name="tokens"
-				value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH" />
+			<property name="tokens" value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH" />
 		</module>
 		<module name="NeedBraces">
-			<property name="tokens"
-				value="LITERAL_DO, LITERAL_ELSE, LITERAL_FOR, LITERAL_IF, LITERAL_WHILE" />
+			<property name="tokens" value="LITERAL_DO, LITERAL_ELSE, LITERAL_FOR, LITERAL_IF, LITERAL_WHILE" />
 		</module>
 		<module name="SuppressionXpathSingleFilter">
 			<!-- suppresion is required till https://github.com/checkstyle/checkstyle/issues/7541 -->
 			<property name="id" value="RightCurlyAlone" />
-			<property name="query"
-				value="//RCURLY[parent::SLIST[count(./*)=1]
+			<property name="query" value="//RCURLY[parent::SLIST[count(./*)=1]
                                      or preceding-sibling::*[last()][self::LCURLY]]" />
 		</module>
 		<module name="OneStatementPerLine" />
@@ -84,91 +78,65 @@
 		<module name="ModifierOrder" />
 		<module name="PackageName">
 			<property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$" />
-			<message key="name.invalidPattern"
-				value="Package name ''{0}'' must match pattern ''{1}''." />
+			<message key="name.invalidPattern" value="Package name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="TypeName">
-			<property name="tokens"
-				value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF,
+			<property name="tokens" value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF,
                     ANNOTATION_DEF, RECORD_DEF" />
-			<message key="name.invalidPattern"
-				value="Type name ''{0}'' must match pattern ''{1}''." />
+			<message key="name.invalidPattern" value="Type name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="MemberName">
 			<property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9]*$" />
-			<message key="name.invalidPattern"
-				value="Member name ''{0}'' must match pattern ''{1}''." />
+			<message key="name.invalidPattern" value="Member name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="ParameterName">
-			<property name="format"
-				value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$" />
-			<message key="name.invalidPattern"
-				value="Parameter name ''{0}'' must match pattern ''{1}''." />
+			<property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$" />
+			<message key="name.invalidPattern" value="Parameter name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="LambdaParameterName">
-			<property name="format"
-				value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$" />
-			<message key="name.invalidPattern"
-				value="Lambda parameter name ''{0}'' must match pattern ''{1}''." />
+			<property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$" />
+			<message key="name.invalidPattern" value="Lambda parameter name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="CatchParameterName">
-			<property name="format"
-				value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$" />
-			<message key="name.invalidPattern"
-				value="Catch parameter name ''{0}'' must match pattern ''{1}''." />
+			<property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$" />
+			<message key="name.invalidPattern" value="Catch parameter name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="LocalVariableName">
-			<property name="format"
-				value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$" />
-			<message key="name.invalidPattern"
-				value="Local variable name ''{0}'' must match pattern ''{1}''." />
+			<property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$" />
+			<message key="name.invalidPattern" value="Local variable name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="PatternVariableName">
-			<property name="format"
-				value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$" />
-			<message key="name.invalidPattern"
-				value="Pattern variable name ''{0}'' must match pattern ''{1}''." />
+			<property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$" />
+			<message key="name.invalidPattern" value="Pattern variable name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="ClassTypeParameterName">
-			<property name="format"
-				value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)" />
-			<message key="name.invalidPattern"
-				value="Class type name ''{0}'' must match pattern ''{1}''." />
+			<property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)" />
+			<message key="name.invalidPattern" value="Class type name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="RecordComponentName">
-			<property name="format"
-				value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$" />
-			<message key="name.invalidPattern"
-				value="Record component name ''{0}'' must match pattern ''{1}''." />
+			<property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$" />
+			<message key="name.invalidPattern" value="Record component name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="RecordTypeParameterName">
-			<property name="format"
-				value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)" />
-			<message key="name.invalidPattern"
-				value="Record type name ''{0}'' must match pattern ''{1}''." />
+			<property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)" />
+			<message key="name.invalidPattern" value="Record type name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="MethodTypeParameterName">
-			<property name="format"
-				value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)" />
-			<message key="name.invalidPattern"
-				value="Method type name ''{0}'' must match pattern ''{1}''." />
+			<property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)" />
+			<message key="name.invalidPattern" value="Method type name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="InterfaceTypeParameterName">
-			<property name="format"
-				value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)" />
-			<message key="name.invalidPattern"
-				value="Interface type name ''{0}'' must match pattern ''{1}''." />
+			<property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)" />
+			<message key="name.invalidPattern" value="Interface type name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="ConstantName">
-			<property name="format"
-				value="^log(ger)?|[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$" />
+			<property name="format" value="^log(ger)?|[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$" />
 		</module>
 		<module name="NoFinalizer" />
 		<module name="AbbreviationAsWordInName">
 			<property name="ignoreFinal" value="true" />
 			<property name="allowedAbbreviationLength" value="0" />
-			<property name="tokens"
-				value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, ANNOTATION_DEF, ANNOTATION_FIELD_DEF,
+			<property name="tokens" value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, ANNOTATION_DEF, ANNOTATION_FIELD_DEF,
                     PARAMETER_DEF, VARIABLE_DEF, METHOD_DEF, PATTERN_VARIABLE_DEF, RECORD_DEF,
                     RECORD_COMPONENT_DEF" />
 		</module>
@@ -181,24 +149,22 @@
 			<property name="max" value="70" />
 			<property name="countEmpty" value="false" />
 		</module>
-		<module name="ParameterNumber"/>
+		<module name="ParameterNumber" />
 		<module name="VariableDeclarationUsageDistance" />
 		<module name="MethodName">
 			<property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9_]*$" />
-			<message key="name.invalidPattern"
-				value="Method name ''{0}'' must match pattern ''{1}''." />
+			<message key="name.invalidPattern" value="Method name ''{0}'' must match pattern ''{1}''." />
 		</module>
 		<module name="EmptyCatchBlock">
 			<property name="exceptionVariableName" value="expected" />
 		</module>
 		<!-- https://checkstyle.org/config_filters.html#SuppressionXpathFilter -->
 		<module name="SuppressionXpathFilter">
-			<property name="file"
-				value="${org.checkstyle.google.suppressionxpathfilter.config}"
-				default="checkstyle-xpath-suppressions.xml" />
+			<property name="file" value="${org.checkstyle.google.suppressionxpathfilter.config}" default="checkstyle-xpath-suppressions.xml" />
 			<property name="optional" value="true" />
 		</module>
 		<module name="VisibilityModifier">
+			<property name="severity" value="error" />
 			<property name="packageAllowed" value="false" />
 		</module>
 	</module>

@@ -18,4 +18,27 @@ public class App
     {
         System.out.println( "Hello World!" );
     }
+    
+    public void unMetodo() {
+        System.exit( 1 ); // System.exit no se puede usar, hay que salir de manera ordenada.
+       
+        // System.exit( 1 )  esto no debe dar problema
+    }
+    
+    public void otroMetodo() {
+        System.exit
+        ( 1 ); // System.exit no se puede usar, hay que salir de manera ordenada.
+       
+        // System.exit( 1 )  esto no debe dar problema
+    }
+
+    public void otroMetodoMas() {
+        System.
+        exit
+        ( 
+        1
+        ); // System.exit no se puede usar, hay que salir de manera ordenada.
+       
+        // System.exit( 1 )  esto no debe dar problema
+    }
 }

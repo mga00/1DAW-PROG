@@ -14,7 +14,7 @@ public class App {
         // Imprimir el numero de argumentos que me pasan
         System.out.println( a.length );
 
-        if ( a.length > 1 ) { // evitando el AAOB, si ya has hecho un control previo esto no haría falta
+        if ( a.length >= 1 ) { // evitando el AAOB, si ya has hecho un control previo esto no haría falta
             System.out.println( "Hello " + a[0] );
         }
 

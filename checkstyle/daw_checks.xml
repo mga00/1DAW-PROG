@@ -70,7 +70,10 @@
                                      or preceding-sibling::*[last()][self::LCURLY]]" />
 		</module>
 		<module name="OneStatementPerLine" />
-		<module name="MagicNumber" />
+		<module name="MagicNumber">
+			<property name="ignoreNumbers" value="-1, 0, 1, 2, 3, 4"/>
+			<property name="ignoreAnnotation" value="true"/>
+		</module>
 		<module name="MultipleVariableDeclarations" />
 		<module name="ArrayTypeStyle" />
 		<module name="MissingSwitchDefault" />

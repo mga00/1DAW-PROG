@@ -1,7 +1,5 @@
 package com.luisantolin.daw.prog.excepcionesunchecked;
 
-import java.util.Random;
-
 public class Clase3 {
 	String[] cosas = new String[] { "una cosa", "otra cosa" };
 

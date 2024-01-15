@@ -17,6 +17,7 @@ public class ImagenFil {
             inputFile = new Scanner( f );
         } catch ( FileNotFoundException e ) {
             System.err.println( "ERROR: no se puede abrir el fichero" );
+            //FIXME: esta excepción hay que lanzarla y App tiene que cogerla.
         }
 
         comentario = inputFile.nextLine();

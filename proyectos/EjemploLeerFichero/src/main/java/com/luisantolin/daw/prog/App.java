@@ -22,7 +22,7 @@ public class App {
 
 			inputFile.close();
 		} catch (FileNotFoundException e) {
-			System.err.println("ERROR: no se puede abrir el fichero");
+			System.err.println("ERROR: no se puede abrir el fichero [" + args[0] + "]");
 		}
 	}
 

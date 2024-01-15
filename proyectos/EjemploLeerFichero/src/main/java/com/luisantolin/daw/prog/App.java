@@ -11,19 +11,23 @@ public class App {
 			return;
 		}
 
+		Scanner inputFile = null;
 		try {
 			File f = new File(args[0]);
-			Scanner inputFile = new Scanner( f );
+			inputFile = new Scanner( f );
 
-			while (inputFile.hasNext()) {
-				String line = inputFile.nextLine();
-				System.out.println("---" + line + "---");
-			}
-
-			inputFile.close();
 		} catch (FileNotFoundException e) {
 			System.err.println("ERROR: no se puede abrir el fichero [" + args[0] + "]");
+			return;
 		}
+		
+        while (inputFile.hasNext()) {
+            String line = inputFile.nextLine();
+            System.out.println("---" + line + "---");
+        }
+
+        inputFile.close();
+
 	}
 
 }

@@ -30,6 +30,10 @@ public class App {
         String connectionString = "";
 
         String mySgbd = System.getenv( "SGBD" );
+        if (mySgbd == null ) {
+            System.err.println( "WARN: Variable SGBD no configurada, se asume mySQL" );
+            mySgbd = SGBD_MYSQL;
+        }
         switch ( mySgbd ) {
             case SGBD_ORACLE:
                 connectionString = "jdbc:oracle:thin:@//127.0.0.1/XEPDB1";

@@ -7,22 +7,45 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * Ejemplo de uso de JDBC con dos SGBD. La idea es darse cuenta de que un codigo bien escrito usando solo las funcionalidades
- * estandar de JDBC hace que las diferencias en código entre usar ORACLE y MySQL sean minimas, solo el connect-string y las
+ * Ejemplo de uso de JDBC con dos SGBD y de Variables de Entorno.
+ * Aprovechamos este ejemplo para introducir también el uso de variables de
+ * entorno. El programa decidirá si funciona con ORACLE o MySQL dependiendo
+ * del valor de una variable de entorno.
+ * La idea es darse cuenta de que un codigo bien escrito usando solo las
+ * funcionalidades
+ * estandar de JDBC hace que las diferencias en código entre usar ORACLE y MySQL
+ * sean minimas, solo el connect-string y las
  * dependencias Maven
- * Si te das cuenta, el código JAVA/SQL que se ejecuta (jdbcDemo) es exactamente el mismo para ORACLE y MySQL.
+ * Si te das cuenta, el código JAVA/SQL que se ejecuta (jdbcDemo) es exactamente
+ * el mismo para ORACLE y MySQL.
  * 
  * @author lantolin
  */
 public class App {
+    public static final String SGBD_MYSQL  = "MYSQL";
+    public static final String SGBD_ORACLE = "ORACLE";
+
     public static void main( String[] args ) {
+
+        String connectionString = "";
+
+        String mySgbd = System.getenv( "SGBD" );
+        switch ( mySgbd ) {
+            case SGBD_ORACLE:
+                connectionString = "jdbc:oracle:thin:@//127.0.0.1/XEPDB1";
+                break;
+            case SGBD_MYSQL:
+                connectionString = "jdbc:mysql://127.0.0.1:3306/testdb?serverTimezone=UTC";
+                break;
+            default:
+                connectionString = "jdbc:mysql://127.0.0.1:3306/testdb?serverTimezone=UTC";
+                break;
+        }
+
+        System.out.println( mySgbd );
         try {
-            System.out.println( "ORACLE" );
-            Connection conn1 = DriverManager.getConnection( "jdbc:oracle:thin:@//127.0.0.1/XEPDB1", "lantolin", "changeme" );
-            jdbcDemo( conn1 );
-            System.out.println( "MySQL" );
-            Connection conn2 = DriverManager.getConnection( "jdbc:mysql://127.0.0.1:3306/testdb?serverTimezone=UTC", "lantolin", "changeme" );
-            jdbcDemo( conn2 );
+            Connection conn = DriverManager.getConnection( connectionString, "lantolin", "changeme" );
+            jdbcDemo( conn );
         } catch ( SQLException e ) {
             System.err.println( "Las BBDD no son lo tuyo: " + e.getMessage() );
         }

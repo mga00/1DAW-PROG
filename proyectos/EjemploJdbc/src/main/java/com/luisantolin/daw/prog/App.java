@@ -24,6 +24,7 @@ import java.sql.Statement;
 public class App {
     public static final String SGBD_MYSQL  = "MYSQL";
     public static final String SGBD_ORACLE = "ORACLE";
+    public static final String SGBD_POSTGRESQL = "POSTGRESQL";
 
     public static void main( String[] args ) {
 
@@ -35,6 +36,9 @@ public class App {
             mySgbd = SGBD_MYSQL;
         }
         switch ( mySgbd ) {
+            case SGBD_POSTGRESQL:
+                connectionString = "jdbc:postgresql//127.0.0.1/testdb";
+                break;
             case SGBD_ORACLE:
                 connectionString = "jdbc:oracle:thin:@//127.0.0.1/XEPDB1";
                 break;

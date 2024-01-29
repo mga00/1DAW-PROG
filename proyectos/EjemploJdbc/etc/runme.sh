@@ -11,3 +11,7 @@ SGBD=ORACLE mvn exec:java
 # mySQL
 
 SGBD=MYSQL mvn exec:java
+
+# postgresql
+
+SGBD=POSTGRESQL mvn exec:java

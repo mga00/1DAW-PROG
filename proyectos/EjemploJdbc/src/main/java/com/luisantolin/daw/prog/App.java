@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * Ejemplo de uso de JDBC con dos SGBD y de Variables de Entorno.
+ * Ejemplo de uso de JDBC con varios SGBD y de Variables de Entorno.
  * Aprovechamos este ejemplo para introducir también el uso de variables de
  * entorno. El programa decidirá si funciona con ORACLE o MySQL dependiendo
  * del valor de una variable de entorno.
@@ -37,7 +37,7 @@ public class App {
         }
         switch ( mySgbd ) {
             case SGBD_POSTGRESQL:
-                connectionString = "jdbc:postgresql//127.0.0.1/testdb";
+                connectionString = "jdbc:postgresql://127.0.0.1/test_db";
                 break;
             case SGBD_ORACLE:
                 connectionString = "jdbc:oracle:thin:@//127.0.0.1/XEPDB1";

@@ -5,19 +5,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.gsd.daw.prog</groupId>
+	<groupId>com.gsd.daw.prog.lantolin</groupId>
 	<artifactId>ProyectoBase</artifactId>
 	<version>1.0</version>
 
 	<name>Proyecto Base</name>
-	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
-		<id1>lantolin</id1>
 	</properties>
 
 	<profiles>

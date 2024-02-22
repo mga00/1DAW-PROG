@@ -13,8 +13,8 @@ public class AppTest {
     @DisplayName( "Test de Cobertura1" )
     public void testDeCobertura1() {
         // este test no hace nada, simplemente da un 100% de cobertura en los reportes.
-        App myApp = new App();
-        App.main( new String[] { "" } );
+        new App();
+        App.main( null );
         assertTrue( true );
     }
 }

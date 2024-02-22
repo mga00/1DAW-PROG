@@ -1,6 +1,6 @@
 package com.gsd.daw.prog;
 
-import com.gsd.daw.prog.api.unApi;
+import com.gsd.daw.prog.api.UnApi;
 
 /**
  * Hola Mundo!
@@ -12,6 +12,6 @@ public class App {
      * @param args No se espera ningún parámetro.
      */
     public static void main( String[] args ) {
-        System.out.println( unApi.holaMundo() );
+        System.out.println( UnApi.holaMundo() );
     }
 }

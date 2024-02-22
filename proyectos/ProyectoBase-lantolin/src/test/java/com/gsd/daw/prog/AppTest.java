@@ -7,6 +7,8 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import com.gsd.daw.prog.api.UnApi;
+
 @TestMethodOrder( MethodOrderer.DisplayName.class )
 public class AppTest {
     @Test
@@ -14,6 +16,7 @@ public class AppTest {
     public void testDeCobertura1() {
         // este test no hace nada, simplemente da un 100% de cobertura en los reportes.
         new App();
+        new UnApi();
         App.main( null );
         assertTrue( true );
     }

@@ -3,7 +3,7 @@ package com.gsd.daw.prog.api;
 /**
  * Ejemplo de distinto paquete que contendría una libreria o API
  */
-public class unApi {
+public class UnApi {
 
     /**
      * Ejemplo de función de libreria, devuelve el clasico saludo hola mundo

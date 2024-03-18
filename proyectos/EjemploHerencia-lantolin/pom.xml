@@ -230,7 +230,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<!-- <show>private</show> -->
+					<show>private</show>
 					<doclet>nl.talsmasoftware.umldoclet.UMLDoclet</doclet>
 					<docletArtifact>
 						<groupId>nl.talsmasoftware</groupId>

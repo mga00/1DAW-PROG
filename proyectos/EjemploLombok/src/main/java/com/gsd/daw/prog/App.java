@@ -16,9 +16,9 @@ public class App {
      * @param args No se espera ningún parámetro.
      */
     public static void main( String[] args ) {
-        Alumno a = new Alumno();
+        Alumno a = new Alumno( "Aitor Tilla" );
         a.setEdad( 20 );
-        a.setNombre( "Ernesto Mate" );
+        a.setNumeroMatricula( "555" );
         System.out.println( a.toString() );
     }
 }

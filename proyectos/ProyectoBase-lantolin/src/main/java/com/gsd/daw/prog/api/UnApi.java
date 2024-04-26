@@ -5,12 +5,12 @@ package com.gsd.daw.prog.api;
  */
 public class UnApi {
 
-    /**
-     * Ejemplo de función de libreria, devuelve el clasico saludo hola mundo
-     * @return un string que saluda al mundo
-     */
-    public static String holaMundo() {
-        return "Hola Mundo";
-    }
-
+	/**
+	 * Ejemplo de función de libreria, devuelve el clasico saludo hola mundo
+	 * 
+	 * @return un string que saluda al mundo
+	 */
+	public static String holaMundo() {
+		return "Hola Mundo";
+	}
 }

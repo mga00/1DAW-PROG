@@ -99,7 +99,6 @@
 				<configuration>
 					<java>
 						<removeUnusedImports />
-						<importOrder />
 						<eclipse/>
 					</java>
 				</configuration>

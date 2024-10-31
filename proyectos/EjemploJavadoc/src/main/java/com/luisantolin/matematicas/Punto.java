@@ -56,7 +56,8 @@ public class Punto {
 	}
 	
 	/**
-	 * Calcula la distancia del punto hasta un punto dado
+	 * Calcula la distancia del punto hasta un punto dado. Usando el teorema
+	 * de Pitágoras.
 	 * @param p el punto desde el que se quiere calcular la distancia
 	 * @return la distancia del punto hasta el punto p
 	 */

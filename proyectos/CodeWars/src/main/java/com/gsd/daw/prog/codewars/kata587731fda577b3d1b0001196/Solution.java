@@ -1,4 +1,4 @@
-package com.gsd.daw.prog.codewars.katacom.gsd.daw.prog.codewars.kata581214d54624a8232100005f;
+package com.gsd.daw.prog.codewars.kata587731fda577b3d1b0001196;
 
 import java.util.Arrays;
 

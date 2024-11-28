@@ -12,7 +12,7 @@ que se usan durante el módulo de Programación (prácticas) del Ciclo Formativo
 
 A los alumnos de este módulo.
 
-Si no cursas este módulo conmigo, muy muy posiblemente el contenido de este repositorio no te interese mucho 🤷
+Si no cursas este módulo conmigo, muy muy posiblemente el contenido de este repositorio no te interese mucho 🤷🤷
 
 ## Probando markdown
 

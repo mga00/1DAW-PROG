@@ -6,10 +6,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.gsd.daw.prog.lantolin</groupId>
-	<artifactId>ProyectoBase</artifactId>
+	<artifactId>EjemploLombok</artifactId>
 	<version>1.0</version>
 
-	<name>Proyecto Base</name>
+	<name>Ejemplo Lombok</name>
 	<url>http://www.example.com</url>
 
 	<properties>

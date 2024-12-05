@@ -8,9 +8,8 @@
   <version>1.0</version>
   <packaging>pom</packaging>
 
-  <name>parent-project</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <name>The One Ring - to bind them all</name>
+  <url>https://luisantolin.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,6 +18,23 @@
 
   <modules>
     <module>ProyectoBase-lantolin</module>
+    <module>EjemploArgumentosLineaDeComandos</module>
+    <module>EjemploCheckstyle</module>
+    <module>EjemploEncapsulacion-lantolin</module>
+    <module>EjemploExcepciones</module>
+    <module>EjemploHerencia-lantolin</module>
+    <module>EjemploInterfacesLogger</module>
+    <module>EjemploInterfazComparable</module>
+    <module>EjemploInterfazDebugger</module>
+    <module>EjemploJavadoc</module>
+    <module>EjemploJdbc</module>
+    <module>EjemploLeerFichero</module>
+    <module>EjemploLogginJul1</module>
+    <module>EjemploLogginJul2</module>
+    <module>EjemploLombok</module>
+    <module>EjemploSingleton</module>
+    <module>EjemploSpringBoot03</module>
+    <module>EjemploStatic</module>
   </modules>
 
 </project>

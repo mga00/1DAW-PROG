@@ -28,5 +28,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      working-directory: ./proyectos/ProyectoBase-lantolin
-      run: mvn -B package 
+      run: mvn -B test

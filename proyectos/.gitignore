@@ -1,3 +1,6 @@
 .~lock.*
 */.classpath
 */bin/
+.checkstyle
+.vscode/
+target/

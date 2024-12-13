@@ -1,7 +1,7 @@
 package com.luisantolin.daw.prog.excepcionesunchecked;
 
 public class Clase3 {
-	String[] cosas = new String[] { "una cosa", "otra cosa" };
+	private String[] cosas = new String[] { "una cosa", "otra cosa" };
 
 	public void otroMetodoMasDeEjemplo(int num) {
 		System.out.println(getCosa(num));

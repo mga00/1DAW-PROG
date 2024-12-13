@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.gsd.daw.prog</groupId>
   <artifactId>PomBase</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
-  <name>The One Ring - to bind them all</name>
+	<name>POM Base</name>
   <url>https://luisantolin.com</url>
 
   <modules>
@@ -53,11 +54,9 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>3.6.0</version>
         <configuration>
-          <configLocation>checkstyle-daw.xml</configLocation>
+          <configLocation>checkstyle.xml</configLocation>
           <consoleOutput>true</consoleOutput>
           <linkXRef>false</linkXRef>
-          <violationSeverity>warning</violationSeverity>
-          <failOnViolation>false</failOnViolation>
         </configuration>
         <executions>
           <execution>
@@ -143,8 +142,10 @@
           <consoleOutputReporter>
             <disable>true</disable>
           </consoleOutputReporter>
-          <statelessTestsetInfoReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporter" />
-          <statelessTestsetReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
+					<statelessTestsetInfoReporter
+						implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporter" />
+					<statelessTestsetReporter
+						implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
             <disable>false</disable>
             <version>3.0</version>
             <usePhrasedFileName>false</usePhrasedFileName>
@@ -276,7 +277,7 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>3.6.0</version>
         <configuration>
-          <configLocation>checkstyle-daw.xml</configLocation>
+          <configLocation>checkstyle.xml</configLocation>
         </configuration>
         <reportSets>
           <reportSet>

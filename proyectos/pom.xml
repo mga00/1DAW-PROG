@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.gsd.daw.prog</groupId>
@@ -35,8 +34,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+		<maven.compiler.release>17</maven.compiler.release>
   </properties>
 
   <dependencies>
@@ -138,14 +136,25 @@
           </dependency>
         </dependencies>
         <configuration>
+					<excludedGroups>${TEST_TAGS_EXCLUIDOS}</excludedGroups>
           <reportFormat>plain</reportFormat>
           <consoleOutputReporter>
             <disable>true</disable>
           </consoleOutputReporter>
-					<statelessTestsetInfoReporter
-						implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporter" />
-					<statelessTestsetReporter
-						implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
+					<statelessTestsetInfoReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporter">
+						<theme>UNICODE</theme>
+						<!-- <theme>ASCII</theme> -->
+						<hideResultsOnSuccess>true</hideResultsOnSuccess>
+						<!-- <printStacktraceOnError>true</printStacktraceOnError> -->
+						<!-- <printStacktraceOnFailure>true</printStacktraceOnFailure> -->
+						<!-- <printStdoutOnError>true</printStdoutOnError> -->
+						<!-- <printStdoutOnFailure>true</printStdoutOnFailure> -->
+						<!-- <printStdoutOnSuccess>false</printStdoutOnSuccess> -->
+						<!-- <printStderrOnError>true</printStderrOnError> -->
+						<!-- <printStderrOnFailure>true</printStderrOnFailure> -->
+						<!-- <printStderrOnSuccess>false</printStderrOnSuccess> -->
+					</statelessTestsetInfoReporter>
+					<statelessTestsetReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
             <disable>false</disable>
             <version>3.0</version>
             <usePhrasedFileName>false</usePhrasedFileName>
@@ -153,7 +162,6 @@
             <usePhrasedTestCaseClassName>true</usePhrasedTestCaseClassName>
             <usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>
           </statelessTestsetReporter>
-
         </configuration>
       </plugin>
       <plugin>

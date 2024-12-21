@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class App2 {
+public class App {
 	public static void main(String[] args) {
 		if (args.length < 1) {
 			System.err.println("USO: <comando> <nombre-de-fichero>");

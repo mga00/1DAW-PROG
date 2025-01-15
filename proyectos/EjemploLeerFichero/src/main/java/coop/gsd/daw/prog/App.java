@@ -1,4 +1,4 @@
-package com.luisantolin.daw.prog;
+package coop.gsd.daw.prog;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,15 +1,13 @@
-package com.luisantolin.daw.prog.figuras;
+package com.gsd.daw.prog.figuras;
 
-public class Elipse {
+public class Circulo {
 	private Punto centro;
-	private Integer radio1;
-	private Integer radio2;
+	private Integer radio;
 	private Stroke stroke;
 	
-	public Elipse(Punto centro, Integer radio1, Integer radio2) {
+	public Circulo(Punto centro, Integer radio) {
 		this.centro = centro;
-		this.radio1 = radio1;
-		this.radio2 = radio2;
+		this.radio = radio;
 		this.stroke=strokeDefecto();
 	}
 	
@@ -27,7 +25,6 @@ public class Elipse {
 		Stroke defecto=new Stroke(color,1);
 		return defecto;
 	}
-
 	public void setCentro(Punto centro) {
 		if(centro==null) {
 			throw new IllegalArgumentException("El centro es inválido");
@@ -35,23 +32,29 @@ public class Elipse {
 		this.centro = centro;
 	}
 
-	public void setRadio1(Integer radio1) {
-		if(radio1==null) {
+	public void setRadio(Integer radio) {
+		if(radio==null) {
 			throw new IllegalArgumentException("El radio1 es inválido");
 		}
-		this.radio1 = radio1;
+		this.radio = radio;
+	}
+	
+	public Punto getCentro() {
+		return centro;
 	}
 
-	public void setRadio2(Integer radio2) {
-		if(radio2==null) {
-			throw new IllegalArgumentException("El radio2 es inválido");
-		}
-		this.radio2 = radio2;
+	public Integer getRadio() {
+		return radio;
 	}
+
+	public Stroke getStroke() {
+		return stroke;
+	}
+
 	public String toSvg() {
-		return "<ellipse cx=\""+centro.getX()+"\" cy=\""+centro.getY()+"\" rx=\""
-	+radio1+"\" ry=\""+radio2+"\" stroke=\""+stroke.toSvg()+"\" stroke-width=\""
-				+stroke.getWidth()+"\" fill=\"none\"/>";
+		return "<circle cx=\""+centro.getX()+"\" cy=\""+centro.getY()+"\" r=\""
+	+getRadio()+"\" stroke=\""+stroke.toSvg()+"\" stroke-width=\""+stroke.getWidth()+""
+			+ "\" fill=\"none\"/>";
 	}
 	
 }

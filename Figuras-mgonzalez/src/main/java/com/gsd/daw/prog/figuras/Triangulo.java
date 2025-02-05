@@ -1,9 +1,10 @@
-package com.luisantolin.daw.prog.figuras;
+package com.gsd.daw.prog.figuras;
 
-public class Poligono {
+public class Triangulo {
 	private Punto[] puntos;
 	private Stroke stroke;
-	public Poligono(Punto[] puntos) {
+	
+	public Triangulo(Punto[] puntos) {
 		this.puntos = puntos;
 		this.stroke=strokeDefecto();
 	}
@@ -14,6 +15,14 @@ public class Poligono {
 		}
 		this.stroke=stroke;
 	}
+	
+	public Punto[] getPuntos() {
+		return puntos;
+	}
+
+	public Stroke getStroke() {
+		return stroke;
+	}
 	public Stroke strokeDefecto() {
 		Byte r=0;
 		Byte g=0;
@@ -22,7 +31,6 @@ public class Poligono {
 		Stroke defecto=new Stroke(color,1);
 		return defecto;
 	}
-	
 	public void setPuntos(Punto[] puntos) {
 		if(puntos==null) {
 			throw new IllegalArgumentException("Los puntos no puenden ser null");
@@ -35,10 +43,6 @@ public class Poligono {
 		this.puntos = puntos;
 	}
 	public String toSvg() {
-		String nuevo="";
-		for (int i = 0; i < puntos.length; i++) {
-			nuevo+=(puntos[i].getX()+" "+puntos[i].getY()+" ");
-		}
-		return "<polyline points=\""+nuevo+"\" stroke=\""+stroke.toSvg()+"\" stroke-width=\""+stroke.getWidth()+"\" fill=\"none\"/>";
+		return "<polygon points=\""+getPuntos()+"\" stroke=\""+stroke.toSvg()+"\" stroke-width=\""+stroke.getWidth()+"\" fill=\"none\"/>";
 	}
 }

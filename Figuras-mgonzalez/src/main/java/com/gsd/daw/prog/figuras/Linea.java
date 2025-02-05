@@ -1,4 +1,4 @@
-package com.luisantolin.daw.prog.figuras;
+package com.gsd.daw.prog.figuras;
 
 public class Linea {
 	private Punto punto1;

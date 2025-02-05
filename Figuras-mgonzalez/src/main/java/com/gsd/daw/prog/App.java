@@ -1,18 +1,18 @@
-package com.luisantolin.daw.prog;
+package com.gsd.daw.prog;
 
 
-import com.luisantolin.daw.prog.figuras.Circulo;
-import com.luisantolin.daw.prog.figuras.Color;
-import com.luisantolin.daw.prog.figuras.Contenedor;
-import com.luisantolin.daw.prog.figuras.Elipse;
-import com.luisantolin.daw.prog.figuras.Linea;
-import com.luisantolin.daw.prog.figuras.LineaPoligonal;
-import com.luisantolin.daw.prog.figuras.Punto;
-import com.luisantolin.daw.prog.figuras.Rectangulo;
-import com.luisantolin.daw.prog.figuras.Stroke;
-import com.luisantolin.daw.prog.figuras.Triangulo;
-import com.luisantolin.daw.prog.figuras.Poligono;
-import com.luisantolin.daw.prog.figuras.TrianguloEquilatero;
+import com.gsd.daw.prog.figuras.Circulo;
+import com.gsd.daw.prog.figuras.Color;
+import com.gsd.daw.prog.figuras.Contenedor;
+import com.gsd.daw.prog.figuras.Elipse;
+import com.gsd.daw.prog.figuras.Linea;
+import com.gsd.daw.prog.figuras.LineaPoligonal;
+import com.gsd.daw.prog.figuras.Poligono;
+import com.gsd.daw.prog.figuras.Punto;
+import com.gsd.daw.prog.figuras.Rectangulo;
+import com.gsd.daw.prog.figuras.Stroke;
+import com.gsd.daw.prog.figuras.Triangulo;
+import com.gsd.daw.prog.figuras.TrianguloEquilatero;
  
 public class App {
  

@@ -1,7 +1,6 @@
 package com.gsd.daw.prog;
 
 import com.gsd.daw.prog.api.Alumno;
-import com.gsd.daw.prog.api.UnApi;
 
 /**
  * Ejemplo de uso super sencillo, pero muy eficiente, de lombok en Maven
@@ -10,15 +9,15 @@ import com.gsd.daw.prog.api.UnApi;
  * no de errores por el código que no existe (el que genera lombok)
  */
 public class App {
-    /**
-     * Punto de entrada de la aplicación
-     * 
-     * @param args No se espera ningún parámetro.
-     */
-    public static void main( String[] args ) {
-        Alumno a = new Alumno( "Aitor Tilla" );
-        a.setEdad( 20 );
-        a.setNumeroMatricula( "555" );
-        System.out.println( a.toString() );
-    }
+	/**
+	 * Punto de entrada de la aplicación
+	 * 
+	 * @param args No se espera ningún parámetro.
+	 */
+	public static void main(String[] args) {
+		Alumno a = new Alumno("Aitor Tilla");
+		a.setEdad(2);
+		a.setNumeroMatricula("555");
+		System.out.println(a.toString());
+	}
 }

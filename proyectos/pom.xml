@@ -22,6 +22,7 @@
     <module>EjemploInterfazComparable</module>
     <module>EjemploInterfazDebugger</module>
     <module>EjemploJavadoc</module>
+    <module>EjemploJunit</module>
     <module>EjemploJdbc</module>
     <module>EjemploLeerFichero</module>
     <module>EjemploLogginJul1</module>
@@ -31,6 +32,43 @@
     <module>EjemploSpringBoot03</module>
     <module>EjemploStatic</module>
   </modules>
+
+	<profiles>
+		<profile>
+			<id>corregir</id>
+		</profile>
+		<profile>
+			<id>entrega-javadoc</id>
+		</profile>
+		<profile>
+			<!--  este perfil solo se puede lanzar desde el parent POM. No he conseguido que se pueda
+			lanzar desde el parent y desde el propio proyecto pq el path del assembly-package.xml es
+			relativo al sitio desde donde se lanza -->
+			<id>entregable-alumno</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>3.7.1</version>
+						<configuration>
+							<descriptors>
+								<descriptor>assembly-package.xml</descriptor>
+							</descriptors>
+						</configuration>
+						<executions>
+							<execution>
+								<id>make-assembly</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -66,16 +104,6 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.7.1</version>
-        <configuration>
-          <descriptors>
-            <descriptor>../assembly-package.xml</descriptor>
-          </descriptors>
-        </configuration>
-      </plugin>
-
       <plugin>
         <groupId>com.diffplug.spotless</groupId>
         <artifactId>spotless-maven-plugin</artifactId>
@@ -297,5 +325,4 @@
       </plugin>
     </plugins>
   </reporting>
-
 </project>

@@ -1,21 +1,24 @@
 package com.luisantolin.daw.prog;
 
 /**
- * Hello world!
- * Proyecto para ser usado como ejemplo o base para un proyecto Java.
- * Características:
- * <ol>
- * <li>Maven, configurado para usar JUnit 5 y Java 8</li>
- * <li>El proyecto se llama Nombre-id1 (tienes que poner tu id1</li>
- * <li>La clase que contiene el metodo main() que lanza la funcionalidad es App, eso esta configurado en pom.xml</li>
+ * Implementacion de una calculadora con operaciones básicas.
  */
-
-public class Calculadora 
-{
-    
-    public int suma( int a, int b ) {
-        return a+b;
-    }
-    
-    
+public class Calculadora {
+	
+	/**
+	 * Constructor por defecto.
+	 */
+	public Calculadora() {
+		
+	}
+	/**
+	 * Calcula la suma de dos enteros.
+	 * Metodo tontamente simple, existe simplemente para usarse en un ejemplo de JUnit
+	 * @param a primer  entero
+	 * @param b segundo entero
+	 * @return la suma del primer entero y el segundo entero
+	 */
+	public int suma(int a, int b) {
+		return a + b;
+	}
 }

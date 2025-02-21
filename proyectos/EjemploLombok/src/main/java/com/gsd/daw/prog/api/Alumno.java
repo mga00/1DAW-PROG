@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Alumno {
     private int          edad;
-    final private String nombre;
+    private final String nombre;
     private String numeroMatricula;
     private List<Modulo> modulos;
 }

@@ -22,11 +22,25 @@ import java.sql.Statement;
  * @author lantolin
  */
 public class App {
+	/**
+	 * Valor de la variable de entorno SGBD para que se use MySQL
+	 */
 	public static final String SGBD_MYSQL = "MYSQL";
+	/**
+	 * Valor de la variable de entorno SGBD para que se use Oracle
+	 */
 	public static final String SGBD_ORACLE = "ORACLE";
+	/**
+	 * Valor de la variable de entorno SGBD para que se use PostgreSQL
+	 */
 	public static final String SGBD_POSTGRESQL = "POSTGRESQL";
 
-	public static void main(String[] args) {
+	/**
+	 * Punto de entrada de la aplicacion
+	 * @param args no se recibe ni procesa ningún argumento
+	 * @throws SQLException
+	 */
+	public static void main(String[] args) throws SQLException {
 
 		String connectionString = "";
 
@@ -51,11 +65,14 @@ public class App {
 		}
 
 		System.out.println(mySgbd);
+		Connection conn = null;
 		try {
-			Connection conn = DriverManager.getConnection(connectionString, "test", "changeme");
+			conn = DriverManager.getConnection(connectionString, "test", "changeme");
 			jdbcDemo(conn);
 		} catch (SQLException e) {
 			System.err.println("ERROR: no se ha inicializado la conexion a la BBDD: " + e.getMessage());
+		} finally {
+			conn.close();
 		}
 	}
 

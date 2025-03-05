@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo mariadb -u lantolin -pchangeme testdb << __END__
+sudo mariadb -u test -pchangeme testdb << __END__
 CREATE TABLE prueba_tb (
      id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
      nombre VARCHAR(30) NOT NULL,

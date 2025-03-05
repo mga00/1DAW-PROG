@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker exec -i DDBB sqlplus lantolin/changeme@XEPDB1 << __END__ 
+docker exec -i DDBB sqlplus test/changeme@XEPDB1 << __END__ 
 DROP TABLE PRUEBA_TB;
 CREATE TABLE PRUEBA_TB (
 NOMBRE VARCHAR2(30) NOT NULL,

@@ -164,6 +164,7 @@
           </dependency>
         </dependencies>
         <configuration>
+					<includes>**/*.java</includes>
 					<excludedGroups>${TEST_TAGS_EXCLUIDOS}</excludedGroups>
           <reportFormat>plain</reportFormat>
           <consoleOutputReporter>
@@ -172,7 +173,7 @@
 					<statelessTestsetInfoReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporter">
 						<theme>UNICODE</theme>
 						<!-- <theme>ASCII</theme> -->
-						<hideResultsOnSuccess>true</hideResultsOnSuccess>
+						<hideResultsOnSuccess>false</hideResultsOnSuccess>
 						<!-- <printStacktraceOnError>true</printStacktraceOnError> -->
 						<!-- <printStacktraceOnFailure>true</printStacktraceOnFailure> -->
 						<!-- <printStdoutOnError>true</printStdoutOnError> -->

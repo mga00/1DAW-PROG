@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# sin variable 
+# sin variable (mySQL)
 
-SGBD=ORACLE mvn exec:java
-
-# ORACLE
-
-SGBD=ORACLE mvn exec:java
+mvn exec:java -Dexec.mainClass="com.gsd.daw.prog.App"
 
 # mySQL
 
-SGBD=MYSQL mvn exec:java
+SGBD=MYSQL mvn exec:java -Dexec.mainClass="com.gsd.daw.prog.App"
+
+# ORACLE
+
+SGBD=ORACLE mvn exec:java -Dexec.mainClass="com.gsd.daw.prog.App"
 
 # postgresql
-
-SGBD=POSTGRESQL mvn exec:java
+#
+# SGBD=POSTGRESQL mvn exec:java -Dexec.mainClass="com.gsd.daw.prog.App"

@@ -11,7 +11,7 @@ public class App {
 		if(args.length<4) {
 			int argsNum=4-args.length;
 			if (argsNum==1) {
-				System.err.println("Eror: Te falta "+argsNum+" dato");
+				System.err.println("Error: Te falta "+argsNum+" dato");
 				return;
 			}
 			System.err.println("Error: Te faltan "+argsNum+" datos");

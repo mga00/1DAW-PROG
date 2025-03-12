@@ -47,14 +47,14 @@ public class App {
 		String mySgbd = System.getenv("SGBD");//getenv=get enviroment (entorno)
 		if (mySgbd == null) {
 			System.err.println("WARN: Variable SGBD no configurada, se asume mySQL");
-			mySgbd = SGBD_MYSQL;
+			mySgbd = SGBD_ORACLE;
 		}
 		switch (mySgbd) {
 		case SGBD_POSTGRESQL:
 			connectionString = "jdbc:postgresql://127.0.0.1/test_db";
 			break;
 		case SGBD_ORACLE:
-			connectionString = "jdbc:oracle:thin:@//127.0.0.1/XEPDB1";
+			connectionString = "jdbc:oracle:thin:@//127.0.0.1/PDB_PROG";
 			break;
 		case SGBD_MYSQL:
 			connectionString = "jdbc:mysql://127.0.0.1:3306/testdb?serverTimezone=UTC";
@@ -65,7 +65,7 @@ public class App {
 		}
 
 		System.out.println(mySgbd);
-		try (Connection conn = DriverManager.getConnection(connectionString, "test", "changeme")) {
+		try (Connection conn = DriverManager.getConnection(connectionString, "mgonzalez", "123")) {
 			jdbcDemo(conn);
 		} catch (SQLException e) {
 			System.err.println("ERROR: excepción SQL: " + e.getMessage());
@@ -75,7 +75,8 @@ public class App {
 
 	private static void jdbcDemo(Connection conn) throws SQLException {
 		Statement stmt = conn.createStatement();
-		ResultSet resultSet = stmt.executeQuery("SELECT * FROM prueba_tb");
+		conn.setAutoCommit(true);
+		ResultSet resultSet = stmt.executeQuery("SELECT * FROM PRUEBA_TB");
 		while (resultSet.next()) {
 			System.out.print("Nombre: " + resultSet.getString("nombre"));
 			System.out.print(" Email: " + resultSet.getString("email") + "\n");

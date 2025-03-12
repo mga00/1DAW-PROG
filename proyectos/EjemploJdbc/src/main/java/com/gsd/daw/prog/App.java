@@ -44,7 +44,7 @@ public class App {
 
 		String connectionString = "";
 
-		String mySgbd = System.getenv("SGBD");
+		String mySgbd = System.getenv("SGBD");//getenv=get enviroment (entorno)
 		if (mySgbd == null) {
 			System.err.println("WARN: Variable SGBD no configurada, se asume mySQL");
 			mySgbd = SGBD_MYSQL;

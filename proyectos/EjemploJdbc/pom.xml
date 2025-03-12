@@ -26,6 +26,20 @@
 -->
 	</dependencies>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<configuration>
+					<cleanupDaemonThreads>false</cleanupDaemonThreads>  <!--
+						para arreglar la IllegalThreadStateException
+						https://github.com/camelinaction/camelinaction2/issues/52# -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 	<parent>
 		<groupId>com.gsd.daw.prog</groupId>
 		<artifactId>PomBase</artifactId>

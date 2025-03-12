@@ -5,8 +5,8 @@ DROP TABLE PRUEBA_TB;
 CREATE TABLE PRUEBA_TB (
 NOMBRE VARCHAR2(30) NOT NULL,
 EMAIL VARCHAR2(100) NOT NULL);
-insert into prueba_tb values ('Ernesto Mate','no@tengo.email.com');
-insert into prueba_tb values ('Aitor Tilla','tampoco@tengo.email.com');
+insert into prueba_tb values ('Ernesto Mate','no@oracle.com');
+insert into prueba_tb values ('Aitor Tilla','tampoco@oracle.com');
 insert into prueba_tb values ('Jesus Todemuerte','sin@email.com');
 exit;
 __END__

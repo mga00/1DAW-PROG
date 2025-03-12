@@ -65,14 +65,11 @@ public class App {
 		}
 
 		System.out.println(mySgbd);
-		Connection conn = null;
-		try {
-			conn = DriverManager.getConnection(connectionString, "test", "changeme");
+		try (Connection conn = DriverManager.getConnection(connectionString, "test", "changeme")) {
 			jdbcDemo(conn);
 		} catch (SQLException e) {
-			System.err.println("ERROR: no se ha inicializado la conexion a la BBDD: " + e.getMessage());
-		} finally {
-			conn.close();
+			System.err.println("ERROR: excepción SQL: " + e.getMessage());
+			return;
 		}
 	}
 

@@ -11,7 +11,7 @@ public class FicheroRecoger {
     private Map<String, String> logs = new HashMap<>();
 	public static String[] parseLogLineString( String line ) {
         String  LOG_ENTRY_PATTERN = "^(\\S+) (\\S+) (\\S+) \\[([\\w:/]+\\s[+\\-]\\d{4})\\] \"(.+?)\" (\\d{3}) (\\S+) \"(.*?)\" \"(.*?)\"$";
-        Pattern pattern           = Pattern.compile( LOG_ENTRY_PATTERN );     
+        Pattern pattern = Pattern.compile( LOG_ENTRY_PATTERN );     
         
         String[] res = new String[6];
         Matcher matcher = pattern.matcher( line );
@@ -25,5 +25,5 @@ public class FicheroRecoger {
         }
         return res;
     }
-	//cafda linea de lfichero utiliza esta funcion una vez
+	//cada linea del fichero utiliza esta funcion una vez
 }

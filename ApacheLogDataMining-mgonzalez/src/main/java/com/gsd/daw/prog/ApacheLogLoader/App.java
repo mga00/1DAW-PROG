@@ -22,23 +22,25 @@ public class App {
 		if(args.length<5) {
 			int argsNum=5-args.length;
 			if (argsNum==1) {
-				System.err.println("Error: Te falta "+argsNum+" dato");
-				return;
-			}
-			System.err.println("Error: Te faltan "+argsNum+" datos");
-			return;
+				System.err.println("Error: Te falta "+argsNum+" dato: ");
+			}else
+				System.err.println("Error: Te faltan "+argsNum+" datos: ");
 		}
 	    // Creacion de la conexión
 		String ip=args[0];
-		if (!ipRangosBien(ip)) {
-			System.err.println("La ip no es correcta");
+		if (!CompArgs.compIp(ip)) {
+			System.err.println("Error: La ip no es correcta");
 			return;
 		}
 		String nombre=args[1];
+		
 		String url="jdbc:oracle:thin:@//"+ip+"/"+nombre;
 	    String user=args[2];
+	    
 	    String contra=args[3];
+	    
 	    String logFile=args[4];
+	    
 	    try (Connection conn = DriverManager.getConnection(url, user, contra)) {
 			jdbcDemo(conn);
 		} catch (SQLException e) {
@@ -47,8 +49,8 @@ public class App {
 		}
 		System.out.println( "INFO: conectado a BBDD." );
 	    // Lectura de datos a estructuras planas
-		final String LOG_REGEX="%h %l %u %u %t .\"%r\" %-s %b .\"%-Referer-i\" \"%-User-age-i\"";
-	    final Pattern patt=Pattern.compile(LOG_REGEX);
+		
+		/*final Pattern patt=Pattern.compile(LOG_REGEX);
 	    try (Connection conn = DriverManager.getConnection(url, user, contra); 
 	    		BufferedReader reader = new BufferedReader(new FileReader(logFile))){
 	    	String line;
@@ -68,7 +70,7 @@ public class App {
 			}
 		} catch (Exception e) {
 			System.err.println("Error al intentar leer el fichero");
-		}
+		}*/
 		// Esto sin colecciones será un String[][] array de tamaño máximo 40000
 	    // elementos
 	    // Crea una clase aparte, cuya responsabilidad sea recibir un nombre de fichero
@@ -110,24 +112,5 @@ public class App {
 			stmt.setString(6, userAgent);
 			stmt.executeUpdate();
 		}
-	}
-	public static boolean ipRangosBien(String ip) {
-		String[] separados=ip.split("\\.");
-		int ip0=Integer.parseInt( separados[0] );
-		int ip1=Integer.parseInt( separados[1] );
-		int ip2=Integer.parseInt( separados[2] );
-		int ip3=Integer.parseInt( separados[3] );
-		if ( ip0>255 || ip0<0 || ip1>255 || ip1<0 || ip2>255 || ip2<0 || ip3>255 || ip3<0) 
-			return false;
-		else {
-			if(ip0==0 && ip1==0 && ip2==0 && ip3==0)
-				return false;
-			else {
-				if(ip0==255 && ip1==255 && ip2==255 && ip3==255)
-					return false;
-				else
-				return true;
-			}
-		}		
 	}
 }

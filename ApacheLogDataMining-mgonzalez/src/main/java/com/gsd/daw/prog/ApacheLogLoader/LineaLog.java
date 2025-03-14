@@ -50,8 +50,9 @@ public class LineaLog {
     // conexion JDBC y hace que los datos del objeto se guarden en BBDD
 	public int save(Connection conn) {
 		String query = "INSERT INTO APACHE_LOG_TBL (IP, TIMESTAMP, REQUEST, "
-				+ "RESULT, BYTES, UA) VALUES ("+ip+","+fecha+","+direccion+","
-				+Integer.parseInt(numError)+","+idError+","+navegador+")";
+				+ "RESULT, BYTES, UA) VALUES ('"+ip+"','"+fecha+"','"+direccion+"',"
+				+Integer.parseInt(numError)+",'"+idError+"','"+navegador+"')";
+		//hay que cambiar el query y hacerlo con un StringBuilder
 		try {
 			conn.setReadOnly(false);
 			Statement st = conn.createStatement();
@@ -60,7 +61,6 @@ public class LineaLog {
 			conn.commit();
 			return filasInsertadas;
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new IllegalArgumentException(e.getMessage());
 		}
 	}

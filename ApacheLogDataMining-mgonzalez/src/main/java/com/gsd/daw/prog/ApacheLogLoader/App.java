@@ -2,18 +2,24 @@ package com.gsd.daw.prog.ApacheLogLoader;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.gsd.daw.prog.ApacheAnalizer.FicheroRecoger;
+
 public class App {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, SQLException {
 	    // Comprobación de argumentos
 		if(args.length>5) {
 			System.err.println("Error: Has puesto demasiados argumentos.");
@@ -49,40 +55,29 @@ public class App {
 		}
 		System.out.println( "INFO: conectado a BBDD." );
 	    // Lectura de datos a estructuras planas
-		
-		/*final Pattern patt=Pattern.compile(LOG_REGEX);
-	    try (Connection conn = DriverManager.getConnection(url, user, contra); 
-	    		BufferedReader reader = new BufferedReader(new FileReader(logFile))){
-	    	String line;
-	    	while ((line=reader.readLine())!=null)  {
-				Matcher matcher = patt.matcher(line);
-				if (matcher.matches()) {
-					String ip1=matcher.group(1);
-					String logTime=matcher.group(2);
-					String request=matcher.group(3);
-					int result=Integer.parseInt(matcher.group(4));
-					int bytesNumber=matcher.group(5).equals("-") ? 0 : Integer.parseInt(matcher.group(5));
-					String userAgent= matcher.group(6);
-					
-					insertIntoDataBase(conn, ip1, logTime, request, result, bytesNumber, userAgent);
-				}
-				
-			}
-		} catch (Exception e) {
-			System.err.println("Error al intentar leer el fichero");
-		}*/
-		// Esto sin colecciones será un String[][] array de tamaño máximo 40000
-	    // elementos
-	    // Crea una clase aparte, cuya responsabilidad sea recibir un nombre de fichero
-	    // y devolver una estructura String[40000][6] con los datos en columnas
-	    //System.out.println( "INFO: leidas [" + ponTuVariableAqui + "] lineas del fichero." );
+		String [][] fichDatos= FicheroRecoger.SepararEnArray(logFile);
+	    int numLineas = FicheroRecoger.contarLineas(logFile);
+		System.out.println( "INFO: leidas [" + numLineas + "] lineas del fichero." );
 	    // Conversion de estructuras planas a objetos del modelo
-	    // Crea una clase que modele los datos que tiene una linea de log de Apache
-	    // Convierte la estructura "anónima" en un array de objetos del modelo
-	    //System.out.println( "INFO: creados [" + ponTuVariableAqui + "] objetos del modelo." );
+		// Crea una clase que modele los datos que tiene una linea de log de Apache
+		// Convierte la estructura "anónima" en un array de objetos del modelo
+		List<LineaLog> logsLista = new ArrayList<>();
+		for (int i = 0; i < fichDatos.length; i++) {
+			if(fichDatos[i][0]==null) {
+				break;
+			}
+			LineaLog l =new LineaLog(fichDatos[i][0], fichDatos[i][1], fichDatos[i][2], fichDatos[i][3],
+					fichDatos[i][4], fichDatos[i][5]);
+			logsLista.add(l);
+		}
+	    System.out.println( "INFO: creados [" + logsLista.size() + "] objetos del modelo." );
 	    // Guardado de los objetos del modelo en BBDD
 	    // La clase del modelo debe tener un método save( Connection ) que recibe una
 	    // conexion JDBC y hace que los datos del objeto se guarden en BBDD
+	    Connection conn = DriverManager.getConnection(url, user, contra);
+	    for (LineaLog l : logsLista) {
+			l.save(conn);
+		}
 	    //System.out.println( "INFO: insertadas [" + i + "] filas en BBDD." );
 	}
 	private static void jdbcDemo(Connection conn) throws SQLException {
@@ -96,21 +91,5 @@ public class App {
 		resultSet.close();
 		stmt.close();
 		conn.close();
-	}
-	public static void insertIntoDataBase(Connection conn, String ip, String logTime, 
-			String request, int result, int bytesNumber, String userAgent)
-					throws Exception {
-		String sql="INSERT INTO APACHE_LOG_TBL (ip, timestamp, request, result,"
-				+ " bytes, ua) VALUES ("+ip+","+logTime+","+request+","+result
-				+","+bytesNumber+","+userAgent+")";
-		try (PreparedStatement stmt=conn.prepareStatement(sql)){
-			stmt.setString(1, ip);
-			stmt.setString(2, logTime);
-			stmt.setString(3, request);
-			stmt.setInt(4, result);
-			stmt.setInt(5, bytesNumber);
-			stmt.setString(6, userAgent);
-			stmt.executeUpdate();
-		}
 	}
 }

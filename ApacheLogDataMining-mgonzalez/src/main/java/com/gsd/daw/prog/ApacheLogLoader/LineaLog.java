@@ -49,17 +49,16 @@ public class LineaLog {
 	// La clase del modelo debe tener un método save( Connection ) que recibe una
     // conexion JDBC y hace que los datos del objeto se guarden en BBDD
 	public int save(Connection conn) {
-		String query = "INSERT INTO APACHE_LOG_TBL (IP, TIMESTAMP, REQUEST, "
+		StringBuilder sb = new StringBuilder("INSERT INTO APACHE_LOG_TBL (IP, TIMESTAMP, REQUEST, "
 				+ "RESULT, BYTES, UA) VALUES ('"+ip+"','"+fecha+"','"+direccion+"',"
-				+Integer.parseInt(numError)+",'"+idError+"','"+navegador+"')";
-		//hay que cambiar el query y hacerlo con un StringBuilder
+				+Integer.parseInt(numError)+",'"+idError+"','"+navegador+"')");
+		String query = sb.toString();
 		try {
 			conn.setReadOnly(false);
 			Statement st = conn.createStatement();
-			int filasInsertadas=st.executeUpdate(query);
 			st.executeUpdate(query);
-			conn.commit();
-			return filasInsertadas;
+			conn.setAutoCommit(true);
+			return 0;
 		} catch (Exception e) {
 			throw new IllegalArgumentException(e.getMessage());
 		}

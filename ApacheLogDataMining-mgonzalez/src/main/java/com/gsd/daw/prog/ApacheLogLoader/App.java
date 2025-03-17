@@ -75,10 +75,12 @@ public class App {
 	    // La clase del modelo debe tener un método save( Connection ) que recibe una
 	    // conexion JDBC y hace que los datos del objeto se guarden en BBDD
 	    Connection conn = DriverManager.getConnection(url, user, contra);
+	    int filasInsertadas=0;
 	    for (LineaLog l : logsLista) {
 			l.save(conn);
+			filasInsertadas++;
 		}
-	    //System.out.println( "INFO: insertadas [" + i + "] filas en BBDD." );
+	    System.out.println( "INFO: insertadas [" + filasInsertadas + "] filas en BBDD." );
 	}
 	private static void jdbcDemo(Connection conn) throws SQLException {
 		Statement stmt = conn.createStatement();

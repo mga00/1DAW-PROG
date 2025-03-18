@@ -20,7 +20,8 @@ import com.gsd.daw.prog.ApacheAnalizer.FicheroRecoger;
 public class App {
 	
 	public static void main(String[] args) throws IOException, SQLException {
-	    // Comprobación de argumentos
+		
+	    // Comprobación de numero de argumentos
 		if(args.length>5) {
 			System.err.println("Error: Has puesto demasiados argumentos.");
 			return;
@@ -32,12 +33,14 @@ public class App {
 			}else
 				System.err.println("Error: Te faltan "+argsNum+" datos: ");
 		}
-	    // Creacion de la conexión
+		
+	    // Creacion de la conexión y comprobar ip
 		String ip=args[0];
 		if (!CompArgs.compIp(ip)) {
 			System.err.println("Error: La ip no es correcta");
 			return;
 		}
+		
 		String nombre=args[1];
 		
 		String url="jdbc:oracle:thin:@//"+ip+"/"+nombre;
@@ -47,6 +50,7 @@ public class App {
 	    
 	    String logFile=args[4];
 	    
+	    //probar a conectarse con la bbdd
 	    try (Connection conn = DriverManager.getConnection(url, user, contra)) {
 			jdbcDemo(conn);
 		} catch (SQLException e) {
@@ -54,12 +58,13 @@ public class App {
 			return;
 		}
 		System.out.println( "INFO: conectado a BBDD." );
-	    // Lectura de datos a estructuras planas
+		
+	    // Lectura de datos a estructuras planas y num de lineas leidas del fichero
 		String [][] fichDatos= FicheroRecoger.SepararEnArray(logFile);
 	    int numLineas = FicheroRecoger.contarLineas(logFile);
 		System.out.println( "INFO: leidas [" + numLineas + "] lineas del fichero." );
+		
 	    // Conversion de estructuras planas a objetos del modelo
-		// Crea una clase que modele los datos que tiene una linea de log de Apache
 		// Convierte la estructura "anónima" en un array de objetos del modelo
 		List<LineaLog> logsLista = new ArrayList<>();
 		for (int i = 0; i < fichDatos.length; i++) {
@@ -70,7 +75,9 @@ public class App {
 					fichDatos[i][4], fichDatos[i][5]);
 			logsLista.add(l);
 		}
+		//numero de lineas creadas en la lista y tiene que coincidir con el numero de lineas leidas del fichero
 	    System.out.println( "INFO: creados [" + logsLista.size() + "] objetos del modelo." );
+	    
 	    // Guardado de los objetos del modelo en BBDD
 	    // La clase del modelo debe tener un método save( Connection ) que recibe una
 	    // conexion JDBC y hace que los datos del objeto se guarden en BBDD

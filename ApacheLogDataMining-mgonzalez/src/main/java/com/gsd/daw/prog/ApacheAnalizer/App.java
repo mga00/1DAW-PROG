@@ -13,7 +13,7 @@ import com.gsd.daw.prog.ApacheLogLoader.CompArgs;
 public class App {
 	
 	public static void main(String[] args) {
-		// Comprobación de argumentos
+		// Comprobación de numero de argumentos
 		if(args.length>4) {
 			System.err.println("Error: Has puesto demasiados argumentos.");
 			return;
@@ -27,7 +27,8 @@ public class App {
 			System.err.println("Error: Te faltan "+argsNum+" datos");
 			return;
 		}
-	    // Creacion de la conexión
+		
+	    // Creacion de la conexión y comprobacion de ip
 		String ip=args[0];
 		if (!CompArgs.compIp(ip)) {
 			System.err.println("Error: La ip no es correcta");
@@ -40,8 +41,11 @@ public class App {
 	    
 	    String contra=args[3];
 	    String query= "Select * from apache_log_tbl";
+	    
 	    // Carga de objetos del modelo de BBDD a estructura plana
 	    List<String[]> logsBbdd = new ArrayList<>();
+	    
+	    //probar conexion con un try
 	    try (Connection conn = DriverManager.getConnection(url, user, contra)) {
 	    	Statement stmt = conn.createStatement();
 	    	ResultSet rs = stmt.executeQuery(query);
@@ -58,10 +62,6 @@ public class App {
 			return;
 		}
 		System.out.println( "INFO: conectado a BBDD." );
-	    // Esto sin colecciones será un String[][] array de tamaño máximo 40000
-	    // elementos
-	    // Crea una clase aparte cuya responsabilidad sea recibir una conexion de BBDD 
-	    // y devolver una estructura String[<tamano-de-los-datos>][6] con los datos en columnas
 	    //System.out.println( "INFO: leidas [" + ponTuVariableAqui + "] lineas de BBDD." );
 	    // Conversion de estructuras planas a objetos del modelo
 	    // Reusa la clase que ya creaste para convertir la estructura "anónima"

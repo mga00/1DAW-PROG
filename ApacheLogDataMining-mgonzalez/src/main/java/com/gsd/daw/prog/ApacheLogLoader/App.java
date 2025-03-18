@@ -94,6 +94,7 @@ public class App {
 		conn.setAutoCommit(true);
 		ResultSet resultSet = stmt.executeQuery("SELECT * FROM APACHE_LOG_TBL");
 		while (resultSet.next()) {
+			
 		}
 		resultSet.close();
 		stmt.close();

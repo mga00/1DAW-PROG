@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.gsd.daw.prog.ApacheLogLoader.CompArgs;
+import com.gsd.daw.prog.ApacheLogLoader.LineaLog;
 
 public class App {
 	
@@ -62,16 +64,27 @@ public class App {
 			return;
 		}
 		System.out.println( "INFO: conectado a BBDD." );
-	    //System.out.println( "INFO: leidas [" + ponTuVariableAqui + "] lineas de BBDD." );
+	    System.out.println( "INFO: leidas [" + logsBbdd.size() + "] lineas de BBDD." );
+	    
 	    // Conversion de estructuras planas a objetos del modelo
 	    // Reusa la clase que ya creaste para convertir la estructura "anónima"
 	    // en un array de objetos del modelo
-	    //System.out.println( "INFO: creados [" + ponTuVariableAqui + "] objetos del modelo." );
+	    List<LineaLogA> logsLista1 = new ArrayList<>();
+	    for(String[] linea: logsBbdd) {
+	    	LineaLogA l = new LineaLogA(linea[0], linea[1], linea[2], linea[3], linea[4], linea[5]);
+	    	logsLista1.add(l);
+	    }
+	    System.out.println( "INFO: creados [" + logsLista1.size() + "] objetos del modelo." );
 	    // Crea una clase separada para realizar cálculos y analisis sobre
 	    // el array de objetos del modelo
 	    // Puede ser una librería de funciones static (sin datos propios)
 	    // que reciban un array de objetos del modelo y realicen cálculos sobre ellos
 	    // Recuerda dividir responsabilidades entre calcular e imprimir.
 	    // Los cálculos que se piden están especificados en el enunciado
+	    Calculos c= new Calculos();
+	    Map<String, Integer> mapaIpsMas10=c.cuantasIps(logsLista1);
+	    c.mostrarIps(mapaIpsMas10);
+	    Map<String, Integer> contadorStCode=c.contadorStatusCode(logsLista1);
+	    c.MostrarListaStCode(contadorStCode);
 	}
 }

@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.gsd.daw.prog.ApacheLogLoader.CompArgs;
-import com.gsd.daw.prog.ApacheLogLoader.LineaLog;
 
 public class App {
 	

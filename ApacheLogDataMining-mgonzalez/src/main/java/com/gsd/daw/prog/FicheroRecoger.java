@@ -1,4 +1,4 @@
-package com.gsd.daw.prog.ApacheAnalizer;
+package com.gsd.daw.prog;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

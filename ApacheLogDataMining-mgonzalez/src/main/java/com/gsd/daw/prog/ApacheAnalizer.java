@@ -1,4 +1,4 @@
-package com.gsd.daw.prog.ApacheAnalizer;
+package com.gsd.daw.prog;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,11 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.gsd.daw.prog.ApacheLogLoader.CompArgs;
-
-public class App {
+public class ApacheAnalizer {
 	
 	public static void main(String[] args) {
+		System.out.println(ApacheAnalizer.class.getName());
 		// Comprobación de numero de argumentos
 		if(args.length>4) {
 			System.err.println("Error: Has puesto demasiados argumentos.");
@@ -68,9 +67,9 @@ public class App {
 	    // Conversion de estructuras planas a objetos del modelo
 	    // Reusa la clase que ya creaste para convertir la estructura "anónima"
 	    // en un array de objetos del modelo
-	    List<LineaLogA> logsLista1 = new ArrayList<>();
+	    List<LineaLog> logsLista1 = new ArrayList<>();
 	    for(String[] linea: logsBbdd) {
-	    	LineaLogA l = new LineaLogA(linea[0], linea[1], linea[2], linea[3], linea[4], linea[5]);
+	    	LineaLog l = new LineaLog(linea[0], linea[1], linea[2], linea[3], linea[4], linea[5]);
 	    	logsLista1.add(l);
 	    }
 	    System.out.println( "INFO: creados [" + logsLista1.size() + "] objetos del modelo." );

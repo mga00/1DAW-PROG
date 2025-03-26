@@ -1,4 +1,4 @@
-package com.gsd.daw.prog.ApacheAnalizer;
+package com.gsd.daw.prog;
 
 import java.util.HashMap;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.Map;
 
 public class Calculos {
 	
-	public Map<String, Integer> cuantasIps (List<LineaLogA> lista){
+	public Map<String, Integer> cuantasIps (List<LineaLog> lista){
 		Map<String, Integer> mapIps = new HashMap<>();
-		for (LineaLogA l : lista) {
+		for (LineaLog l : lista) {
 			String ip= l.getIp();
 			mapIps.put(ip, mapIps.getOrDefault(ip, 0) + 1);
 		}
@@ -30,9 +30,9 @@ public class Calculos {
 			System.out.println(entry.getKey()+": "+entry.getValue());
 		}
 	}
-	public Map<String, Integer> contadorStatusCode (List<LineaLogA> lista){
+	public Map<String, Integer> contadorStatusCode (List<LineaLog> lista){
 		Map<String, Integer> mapStatusCode = new HashMap<>();
-		for (LineaLogA l : lista) {
+		for (LineaLog l : lista) {
 			String StatusCode= l.getNumError();
 			mapStatusCode.put(StatusCode, mapStatusCode.getOrDefault(StatusCode, 0) + 1);
 		}

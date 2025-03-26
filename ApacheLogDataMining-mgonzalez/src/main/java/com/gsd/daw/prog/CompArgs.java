@@ -1,7 +1,6 @@
-package com.gsd.daw.prog.ApacheLogLoader;
+package com.gsd.daw.prog;
 
 public class CompArgs {
-
 	public static boolean compIp(String ip) {
 		String[] separados=ip.split("\\.");
 		int ip0=Integer.parseInt( separados[0] );
@@ -19,7 +18,6 @@ public class CompArgs {
 				else
 				return true;
 			}
-		}
+		}		
 	}
-
 }

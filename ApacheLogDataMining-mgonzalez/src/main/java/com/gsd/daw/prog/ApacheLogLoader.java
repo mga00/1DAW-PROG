@@ -1,4 +1,4 @@
-package com.gsd.daw.prog.ApacheLogLoader;
+package com.gsd.daw.prog;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -9,10 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import com.gsd.daw.prog.ApacheAnalizer.FicheroRecoger;
-
-public class App {
+public class ApacheLogLoader {
 	
 	public static void main(String[] args) throws IOException, SQLException {
 		

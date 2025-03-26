@@ -58,9 +58,11 @@ public class LineaLog {
 			Statement st = conn.createStatement();
 			st.executeUpdate(query);
 			conn.setAutoCommit(true);
+			st.close();
 			return 0;
 		} catch (Exception e) {
 			throw new IllegalArgumentException(e.getMessage());
 		}
+		
 	}
 }

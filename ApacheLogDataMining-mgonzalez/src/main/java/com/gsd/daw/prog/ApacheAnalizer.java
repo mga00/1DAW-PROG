@@ -12,7 +12,6 @@ import java.util.Map;
 public class ApacheAnalizer {
 	
 	public static void main(String[] args) {
-		System.out.println(ApacheAnalizer.class.getName());
 		// Comprobación de numero de argumentos
 		if(args.length>4) {
 			System.err.println("Error: Has puesto demasiados argumentos.");

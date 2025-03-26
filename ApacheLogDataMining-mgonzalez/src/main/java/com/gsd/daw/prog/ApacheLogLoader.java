@@ -22,8 +22,10 @@ public class ApacheLogLoader {
 			int argsNum=5-args.length;
 			if (argsNum==1) {
 				System.err.println("Error: Te falta "+argsNum+" dato: ");
+				return;
 			}else
 				System.err.println("Error: Te faltan "+argsNum+" datos: ");
+			return;
 		}
 		
 	    // Creacion de la conexión y comprobar ip

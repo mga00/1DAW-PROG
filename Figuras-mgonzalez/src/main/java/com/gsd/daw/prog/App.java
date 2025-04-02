@@ -7,11 +7,11 @@ import com.gsd.daw.prog.figuras.Contenedor;
 import com.gsd.daw.prog.figuras.Elipse;
 import com.gsd.daw.prog.figuras.Linea;
 import com.gsd.daw.prog.figuras.LineaPoligonal;
-import com.gsd.daw.prog.figuras.Poligono;
 import com.gsd.daw.prog.figuras.Punto;
 import com.gsd.daw.prog.figuras.Rectangulo;
 import com.gsd.daw.prog.figuras.Stroke;
 import com.gsd.daw.prog.figuras.Triangulo;
+import com.gsd.daw.prog.figuras.Poligono;
 import com.gsd.daw.prog.figuras.TrianguloEquilatero;
  
 public class App {
@@ -48,6 +48,8 @@ public class App {
 		contenedor.addLineaPoligonal(lp1);
 		contenedor.addPoligono(po1);
 		contenedor.addRectangulo(r1);
+		contenedor.addTriangulo(t1);
+		contenedor.addTrianguloEquilatero(te1);
 		System.out.println(contenedor.toSvg());
 	}
 	

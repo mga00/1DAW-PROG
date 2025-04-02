@@ -43,6 +43,10 @@ public class Triangulo {
 		this.puntos = puntos;
 	}
 	public String toSvg() {
-		return "<polygon points=\""+getPuntos()+"\" stroke=\""+stroke.toSvg()+"\" stroke-width=\""+stroke.getWidth()+"\" fill=\"none\"/>";
+		String nuevo="";
+		for (int i = 0; i < puntos.length; i++) {
+			nuevo+=(puntos[i].getX()+" "+puntos[i].getY()+" ");
+		}
+		return "<polygon points=\""+nuevo+"\" stroke=\""+stroke.toSvg()+"\" stroke-width=\""+stroke.getWidth()+"\" fill=\"none\"/>";
 	}
 }

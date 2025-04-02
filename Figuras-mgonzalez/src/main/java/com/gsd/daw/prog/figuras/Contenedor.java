@@ -9,11 +9,12 @@ public class Contenedor {
 	private LineaPoligonal lineaPoligonalSvg;
 	private Poligono poligonoSvg;
 	private Rectangulo rectanguloSvg;
+	private Triangulo trianguloSvg;
+	private TrianguloEquilatero trianguloEquilateroSvg;
 	
 	public Contenedor(Integer ancho, Integer alto) {
 		this.ancho = ancho;
 		this.alto = alto;
-		this.circuloSvg=null;
 		
 	}
 	public Circulo getCirculo() {
@@ -82,11 +83,23 @@ public class Contenedor {
 		}
 		this.rectanguloSvg=figura;
 	}
+	public void addTriangulo(Triangulo figura) {
+		if(figura==null) {
+			throw new IllegalArgumentException("El rectangulo a añador no puede ser null");
+		}
+		this.trianguloSvg=figura;
+	}
+	public void addTrianguloEquilatero(TrianguloEquilatero figura) {
+		if(figura==null) {
+			throw new IllegalArgumentException("El rectangulo a añador no puede ser null");
+		}
+		this.trianguloEquilateroSvg=figura;
+	}
 	
 	public String toSvg() {
 		return "<svg viewBox=\"0 0 "+getAncho()+" "+getAlto()+"\" xmlns=\"http://www.w3.org/2000/svg\">\n"+circuloSvg.toSvg()+
 				"\n"+elipseSvg.toSvg()+"\n"+lineaSvg.toSvg()+"\n"+lineaPoligonalSvg.toSvg()+"\n"+poligonoSvg.toSvg()+
-				"\n"+rectanguloSvg.toSvg()+"\n"+"</svg>";
+				"\n"+trianguloSvg.toSvg()+"\n"+trianguloEquilateroSvg.toSvg()+"\n"+rectanguloSvg.toSvg()+"\n"+"</svg>";
 	}
 	
 }

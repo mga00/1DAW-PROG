@@ -15,7 +15,6 @@ public class Contenedor {
 	public Contenedor(Integer ancho, Integer alto) {
 		this.ancho = ancho;
 		this.alto = alto;
-		
 	}
 	public Circulo getCirculo() {
 		return circuloSvg;
@@ -37,14 +36,14 @@ public class Contenedor {
 	
 	public void addCirculo(Circulo figura) {
 		if(figura==null) {
-			throw new IllegalArgumentException("El circulo a añador no puede ser null");
+			throw new IllegalArgumentException("El circulo a añadir no puede ser null");
 		}
 		this.circuloSvg=figura;
 	}
 	
 	public void addElipse(Elipse figura) {
 		if(figura==null) {
-			throw new IllegalArgumentException("La elipse a añador no puede ser null");
+			throw new IllegalArgumentException("La elipse a añadir no puede ser null");
 		}
 		this.elipseSvg=figura;
 	}
@@ -59,39 +58,39 @@ public class Contenedor {
 
 	public void addLinea(Linea figura) {
 		if(figura==null) {
-			throw new IllegalArgumentException("La linea a añador no puede ser null");
+			throw new IllegalArgumentException("La linea a añadir no puede ser null");
 		}
 		this.lineaSvg=figura;
 	}
 	
 	public void addLineaPoligonal(LineaPoligonal figura) {
 		if(figura==null) {
-			throw new IllegalArgumentException("La linea poligonal a añador no puede ser null");
+			throw new IllegalArgumentException("La linea poligonal a añadir no puede ser null");
 		}
 		this.lineaPoligonalSvg=figura;	}
 	
 	public void addPoligono(Poligono figura) {
 		if(figura==null) {
-			throw new IllegalArgumentException("El poligono a añador no puede ser null");
+			throw new IllegalArgumentException("El poligono a añadir no puede ser null");
 		}
 		this.poligonoSvg=figura;
 	}
 	
 	public void addRectangulo(Rectangulo figura) {
 		if(figura==null) {
-			throw new IllegalArgumentException("El rectangulo a añador no puede ser null");
+			throw new IllegalArgumentException("El rectangulo a añadir no puede ser null");
 		}
 		this.rectanguloSvg=figura;
 	}
 	public void addTriangulo(Triangulo figura) {
 		if(figura==null) {
-			throw new IllegalArgumentException("El rectangulo a añador no puede ser null");
+			throw new IllegalArgumentException("El rectangulo a añadir no puede ser null");
 		}
 		this.trianguloSvg=figura;
 	}
 	public void addTrianguloEquilatero(TrianguloEquilatero figura) {
 		if(figura==null) {
-			throw new IllegalArgumentException("El rectangulo a añador no puede ser null");
+			throw new IllegalArgumentException("El rectangulo a añadir no puede ser null");
 		}
 		this.trianguloEquilateroSvg=figura;
 	}

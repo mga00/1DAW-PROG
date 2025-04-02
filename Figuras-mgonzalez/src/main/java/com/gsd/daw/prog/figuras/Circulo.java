@@ -21,7 +21,7 @@ public class Circulo {
 		Byte r=0;
 		Byte g=0;
 		Byte b=0;
-		Color color=new Color(r,g,b);
+		Color color=new Color((byte)r ,(byte)g ,(byte)b );
 		Stroke defecto=new Stroke(color,1);
 		return defecto;
 	}
@@ -53,7 +53,7 @@ public class Circulo {
 
 	public String toSvg() {
 		return "<circle cx=\""+centro.getX()+"\" cy=\""+centro.getY()+"\" r=\""
-	+getRadio()+"\" stroke=\""+stroke.toSvg()+"\" stroke-width=\""+stroke.getWidth()+""
+	+getRadio()+"\" stroke=\""+stroke.getColor().toSvg()+"\" stroke-width=\""+stroke.getWidth()+""
 			+ "\" fill=\"none\"/>";
 	}
 	

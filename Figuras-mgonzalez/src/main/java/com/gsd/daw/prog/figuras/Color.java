@@ -12,7 +12,7 @@ public class Color {
 	}
 	
 	public void setRed(Byte red) {
-		if(red<0 || red>255 || red==null) {
+		if(red==null || red<0 || red>255 || red==null) {
 			throw new IllegalArgumentException("El valor de rojo tiene que estar entre 0 y 255");
 		}
 		this.red = byteToUnsignedInt(red);
@@ -22,13 +22,13 @@ public class Color {
 	}
 
 	public void setGreen(Byte green) {
-		if(green<0 || green>255 || green==null) {
+		if(green==null || green<0 || green>255 || green==null) {
 			throw new IllegalArgumentException("El valor de verde tiene que estar entre 0 y 255");
 		}
 		this.green = byteToUnsignedInt(green);
 	}
 	public void setBlue(Byte blue) {
-		if(blue<0 || blue>255 || blue==null) {
+		if(blue==null || blue<0 || blue>255 || blue==null) {
 			throw new IllegalArgumentException("El valor de azul tiene que estar entre 0 y 255");
 		}
 		this.blue = byteToUnsignedInt(blue);

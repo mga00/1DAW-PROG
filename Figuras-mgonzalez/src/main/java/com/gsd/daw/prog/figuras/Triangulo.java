@@ -32,8 +32,8 @@ public class Triangulo {
 		return defecto;
 	}
 	public void setPuntos(Punto[] puntos) {
-		if(puntos==null) {
-			throw new IllegalArgumentException("Los puntos no puenden ser null");
+		if(puntos==null || puntos.length !=3) {
+			throw new IllegalArgumentException("Los puntos no puenden ser null ni ser menos que tres");
 		}
 		for (int i = 0; i < puntos.length; i++) {
 			if(puntos[i]==null) {

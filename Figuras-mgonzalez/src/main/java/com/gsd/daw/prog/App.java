@@ -18,7 +18,8 @@ public class App {
  
 	public static void main(String[] args) {
 		byte green  = (byte) 122;
-		
+		//j
+	
 		byte red  = (byte) 22;
 		byte blue  = (byte) 44;
 		Color c1 = new Color(red,green,blue);
